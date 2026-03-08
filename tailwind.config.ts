@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -56,6 +59,27 @@ export default {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
+          muted: "hsl(var(--sidebar-muted))",
+        },
+        jso: {
+          slate: {
+            50: "hsl(var(--jso-slate-50))",
+            100: "hsl(var(--jso-slate-100))",
+            200: "hsl(var(--jso-slate-200))",
+            600: "hsl(var(--jso-slate-600))",
+            700: "hsl(var(--jso-slate-700))",
+            800: "hsl(var(--jso-slate-800))",
+            900: "hsl(var(--jso-slate-900))",
+            950: "hsl(var(--jso-slate-950))",
+          },
+          blue: {
+            400: "hsl(var(--jso-blue-400))",
+            500: "hsl(var(--jso-blue-500))",
+            600: "hsl(var(--jso-blue-600))",
+          },
+          emerald: "hsl(var(--jso-emerald))",
+          amber: "hsl(var(--jso-amber))",
+          rose: "hsl(var(--jso-rose))",
         },
       },
       borderRadius: {
