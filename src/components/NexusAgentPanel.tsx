@@ -52,28 +52,38 @@ const typeConfig = {
 
 export function NexusAgentPanel() {
   return (
-    <div className="rounded-xl border border-border bg-card jso-card-glow overflow-hidden">
+    <div className="relative rounded-xl bg-card overflow-hidden jso-nexus-glow">
+      {/* Animated border glow layer */}
+      <div className="absolute inset-0 rounded-xl jso-nexus-border pointer-events-none" />
+
       {/* Header */}
-      <div className="flex items-center gap-3 border-b border-border px-6 py-4">
-        <div className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
+      <div className="relative flex items-center gap-3 border-b border-border px-6 py-4">
+        <div className="relative flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
           <Bot className="h-5 w-5 text-primary" />
-          <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full border-2 border-card bg-jso-emerald jso-ai-pulse" />
+          {/* Pulsing rings */}
+          <span className="absolute inset-0 rounded-lg border-2 border-primary/30 jso-ping-ring" />
+          <span className="absolute -right-0.5 -top-0.5 h-3 w-3 rounded-full border-2 border-card bg-jso-emerald">
+            <span className="absolute inset-0 rounded-full bg-jso-emerald jso-ai-pulse" />
+          </span>
         </div>
         <div>
           <h2 className="text-base font-semibold text-card-foreground">JSO Nexus Agent Insights</h2>
           <p className="text-xs text-muted-foreground flex items-center gap-1.5">
-            <Zap className="h-3 w-3" />
+            <Zap className="h-3 w-3 text-jso-amber" />
             Predictive Intelligence Feed — Live
           </p>
         </div>
-        <span className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-jso-emerald/10 px-2.5 py-1 text-xs font-medium text-jso-emerald">
-          <span className="h-1.5 w-1.5 rounded-full bg-jso-emerald jso-ai-pulse" />
+        <span className="ml-auto inline-flex items-center gap-2 rounded-full bg-jso-emerald/10 px-3 py-1.5 text-xs font-semibold text-jso-emerald">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-jso-emerald opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-jso-emerald" />
+          </span>
           Active
         </span>
       </div>
 
       {/* Insights feed */}
-      <div className="divide-y divide-border max-h-[420px] overflow-y-auto">
+      <div className="relative divide-y divide-border max-h-[420px] overflow-y-auto">
         {insights.map((insight, i) => {
           const cfg = typeConfig[insight.type];
           const Icon = cfg.icon;
